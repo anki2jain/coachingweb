@@ -1,4 +1,12 @@
 <?php include 'navbar.php' ?>
+
+
+<style>
+    body{
+background-image:linear-gradient(#ffffff,#274046);
+}
+</style>
+
 <html>
     <body>
     <?php
@@ -41,7 +49,7 @@ echo "Error: " . $add . "<br>" . $link->error;
 
 
 <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-4 mx-auto"  style="padding-top:100px">
         <div class="card card-body">
 
 <h3>Register here!</h3>

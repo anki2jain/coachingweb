@@ -3,8 +3,12 @@ include 'navbar.php'
 ?>
 
 <div class="row">
-    <div class="col-md-6 mx-auto">
-        <div class="card card-body">
+
+<div class="col-md-4">
+<img src="pic.jpg"  style="padding:100px">
+</div>
+    <div class="col-md-4 mx-auto"  style="padding-top:100px">
+        <div class="card card-body" >
          
 <h3>login here!</h3>
             <form method='post' action=''>

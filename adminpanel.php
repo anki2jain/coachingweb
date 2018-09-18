@@ -13,8 +13,6 @@ session_start();
 
     <title>Hello, world!</title>
   </head>
-
-
   <style>
     body {
 	width: 100wh;

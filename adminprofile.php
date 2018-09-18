@@ -16,8 +16,20 @@ if(!isset($_SESSION['email1']))
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <title>Hello, world!</title>
+  <script src="myscripts.js"></script>
+  <style>
+    a{
+      font-family: 'Arvo', serif;
+    }
+    tr:hover{
+      background-color:blue;
+      cursor:pointer;
+      color:white;
+        }
+    </style>
   </head>
   <body>
  
@@ -53,13 +65,32 @@ if(!isset($_SESSION['email1']))
 </nav>
 
 
+<?php
+ $link =mysqli_connect("localhost","root","",'test');
+ $dub ="SELECT * from `applications` WHERE status='' ";
+
+ $check =mysqli_query($link,$dub);
+if($check)
+{
+  echo "<h5 style='font-family: Arvo, Serif; padding-left:100px'>following students has applied for the various courses:</h5><br><br>";
+
+  
+  echo "<div style='overflow-x:auto;'><div class='container'> <table class='table'><tr><th></th> <th>NAME</th>  <th>COURSE</th><th>  Mobile </th><th> Email</th> <th>CGPA </th><th>  SCHOOL</th><th> Parent's no.</th></tr></div>";
+  while($row = mysqli_fetch_array($check))
+{  echo "<div class='container hey'><tr><td>*</td><td> $row[sname] </td><td> $row[course] </td><td> $row[smobi] </td><td> $row[semail] </td><td> $row[cgpa] </td><td> $row[school] </td><td> $row[fmobi] </td></tr></div>";
+// echo "<br><br>";
+}
+echo '</table></div>';
+}
+else {
+  echo '<h5 style="padding:50px 600px ">No Applictions</h5>';
+  }
+
+mysqli_close($link);
+?>
 
 
-
- 
-
-
-
+<h6 style="display:none">ankitjain</h6>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

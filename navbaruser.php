@@ -20,15 +20,17 @@ if (!isset($_SESSION['email']))
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>coaching web</title>
   </head>
   <body>
+  
 
 
-
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
         <div class="container">
-  <a class="navbar-brand"  href="#">hiii <?php
+  <a class="navbar-brand"  href="studpro.php"><i class="fas fa-user-graduate"></i>   hiii <?php
     
      $link =mysqli_connect("localhost","root","",'test');
      $f=$_SESSION['email'];
@@ -45,23 +47,23 @@ if (!isset($_SESSION['email']))
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link" href="user.php"><span class="label label-default" style="background-color:red ;
+        <a class="nav-link" href="result.php"><span class="label label-default" style="background-color:red ;
         color:white">new</span>Results </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" ><span class="label label-default" style="background-color:red; color:white">new</span>Downloads</a> 
+        <a class="nav-link" href="downloads.php" ><span class="label label-default" style="background-color:red; color:white">new</span>Downloads</a> 
       </li>
      
       <li class="nav-item">
-        <a class="nav-link" href="#">Courses </a> 
+        <a class="nav-link" href="notices.php">Notice</a> 
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="#">fee Status</a> 
+        <a class="nav-link" href="comingsoon_02/comingsoon.php">fee Status</a> 
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Performance</a> 
+        <a class="nav-link" href="performance.php">Performance</a> 
       </li>
       
 </ul>

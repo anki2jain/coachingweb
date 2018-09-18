@@ -23,7 +23,7 @@ if (isset($_SESSION['email']))
   <body>
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
         <div class="container">
   <a class="navbar-brand" href="index.php">Talkwidme!</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,27 +33,38 @@ if (isset($_SESSION['email']))
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ">
-        <a class="nav-link" href="index.php">Home </a>
+        <a class="nav-link" href="in.php">Home </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About </a>
+        <a class="nav-link" href="#courses">courses </a>
       </li>
      
       <li class="nav-item">
+        <a class="nav-link" href="gallery.php">Gallery </a>
+      </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link" href="applyhere.php">Apply here! </a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+
+
+    <li class="nav-item">
         <a class="nav-link " href="login.php">login </a>
       </li>
 
   <li class="nav-item">
         <a class="nav-link " href="register.php">register </a>
       </li>
-
-    </ul>
-    <ul class="navbar-nav ml-auto">
       <li class="nav item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown/menuLink">video ideas</a>
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdown/menuLink">About Us!</a>
       <div class="dropdown-menu">
-        <a href="/ideas" class="dropdown-item">ideas</a>
-        <a href="/ideas/add" class="dropdown-item">Add ideas</a> 
+        <a href="/ideas" class="dropdown-item">Aim/mission</a>
+        <a href="/ideas/add" class="dropdown-item">faculty</a> 
+        <a href="/ideas" class="dropdown-item">Alumni batch</a>
       </div>
       </li>
     </ul>

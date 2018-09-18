@@ -6,50 +6,159 @@ include 'navbaruser.php';
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="myscripts.js" ></script>
 <style>
-body {font-family: "Lato", sans-serif;}
-
-.tablink {
-    background-color: #555;
-    color: white;
-    float: left;
-    border: none;
-    outline: none;
+.accordion {
+    background-color: #eee;
+    color: #444;
     cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 24.6%;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
 }
 
-.tablink:hover {
-    background-color: #777;
+.active, .accordion:hover {
+    background-color: #ccc; 
 }
 
-/* Style the tab content */
-.tabcontent {
-    color: white;
+.panel {
+    padding: 20px 18px;
     display: none;
-    padding: 50px;
-    text-align: center;
+    background-color: white;
+    overflow: hidden;
 }
 
-#London {background-color:skyblue; width:1000px }
-#Paris {background-color:skyblue;width:1000px}
-#Tokyo {background-color:skyblue;width:1000px}
+.accordion{
+   text-align:center;
+width:1100px;
+ padding-left:50px;
+   
+}
 
+.accordion {
+   background-color:white;
+   min-width: 50px; 
+   max-width: 1300px; 
+}
+.accordion:hover{
+color:white;
+background-color:black;
+}
 </style>
 </head>
 <body>
 
-<p>Click on the buttons inside the tabbed menu:</p>
 
-<div style="padding-left:50px">
-<button class="tablink" onclick="openCity('London', this, 'skyblue')" id="defaultOpen">London</button>
-<button class="tablink" onclick="openCity('Paris', this, 'skyblue')">Paris</button>
-<button class="tablink" onclick="openCity('Tokyo', this, 'skyblue')">Tokyo</button>
 
-<div id="London" class="tabcontent">
+
+
+<!-------------------physics-------------------------->
+<div class="container">
+<br>
+<div>
+
+<form method="get" action="backend.php" class="form-inline my-2 my-lg-0">
+<h2>subjects</h2>
+      <input class="form-control mr-sm-2 ml-auto" type="text" placeholder="Search topic"   name="search" aria-label="Search">
+      <button class="btn  my-2 my-sm-0" style="color:white;
+      background-color:black;" type="submit"name="submit">Search</button>
+    </form>
+    </div>
+<br>
+
+
+<button class="accordion">Physics</button>
+
+<div class="panel">
+<div class="container">
+<?php
+ $link =mysqli_connect("localhost","root","",'test');
+ $dub ="SELECT * from `physics` ";
+
+ $check =mysqli_query($link,$dub);
+
+
+while($row = mysqli_fetch_array($check))
+{$fname= $row['file'];
+echo '<tr><div class="card card-body"><div class="row"><div class"col-md-3">';
+echo '<img src="'.$row['pic'].'"  height=150px width=150px ><br>';
+echo "<h3>".$row['topic']."</h3></div>";
+
+echo '
+
+<div class="col-md-8  col-xs-8">
+<h5>About:</h5>
+<h6>"'.$row['brief'].'"</h6>
+
+<br>
+
+
+<a href="dfile.php?dow='.$fname.'"><h3 style="float:right"><i class="fas fa-download"></i></h3></a><br>
+</div>
+</div>
+';
+
+echo "</div></tr><br><br>";
+}
+
+
+mysqli_close($link);
+?>
+</div>
+</div>
+
+<br>
+
+
+
+<!-------------------chemistry-------------------------->
+<button class="accordion" >Chemistry</button>
+<div class="panel">
+<div class="container">
+<?php
+ $link =mysqli_connect("localhost","root","",'test');
+ $dub ="SELECT * from `chemistry` ";
+
+ $check =mysqli_query($link,$dub);
+
+
+ while($row = mysqli_fetch_array($check))
+ {$fname= $row['file'];
+ echo '<tr><div class="card card-body"><div class="row"><div class"col-md-3">';
+ echo '<img src="'.$row['pic'].'"  height=150px width=150px ><br>';
+ echo "<h3>".$row['topic']."</h3></div>";
+ 
+ echo '
+ 
+ <div class="col-md-8">
+ <h5>About:</h5>
+ <h6>"'.$row['brief'].'"</h6>
+ 
+ <br>
+ 
+ 
+ <a href="dfile.php?dow='.$fname.'"><h1 style="float:right"><i class="fas fa-download"></i></h1></a><br>
+ </div>
+ </div>
+ ';
+ 
+ echo "</div></tr><br><br>";
+ }
+ 
+ 
+mysqli_close($link);
+?>
+</div>
+</div>
+<!-------------------mathematics-------------------------->
+<button class="accordion">Mathematics</button>
+<div class="panel">
 <div class="container">
 <?php
  $link =mysqli_connect("localhost","root","",'test');
@@ -58,60 +167,62 @@ body {font-family: "Lato", sans-serif;}
  $check =mysqli_query($link,$dub);
 
 
-echo "<table border='1'>
-<tr>
-<th>Firstname</th>
-<th>Lastname</th>
-</tr>";
-
-while($row = mysqli_fetch_array($check))
-{
-echo "<tr>";
-echo "<td>" . $row['topic'] . "</td>";
-echo "<td>" . $row['brief'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
-
+ while($row = mysqli_fetch_array($check))
+ {$fname= $row['file'];
+ echo '<tr><div class="card card-body"><div class="row"><div class"col-md-3">';
+ echo '<img src="'.$row['pic'].'"  height=150px width=150px ><br>';
+ echo "<h3>".$row['topic']."</h3></div>";
+ 
+ echo '
+ 
+ <div class="col-md-8">
+ <h5>About:</h5>
+ <h6>"'.$row['brief'].'"</h6>
+ 
+ <br>
+ 
+ 
+ <a href="dfile.php?dow='.$fname.'"><h1 style="float:right"><i class="fas fa-download"></i></h1></a><br>
+ </div>
+ </div>
+ ';
+ 
+ echo "</div></tr><br><br>";
+ }
+ 
+ 
 mysqli_close($link);
 ?>
 </div>
-</div>
+ 
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
 
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
 
 </div>
+<br><br><br>
+<br><br><br>
+<br><br><br><br><br><br>
+<h6><bold>**NOTE:</bold>you can download notes of the respectve topic by jst clicking on the icon  <i class="fas fa-download"></i></h6>
 
-
-
+</div>
 
 <script>
-function openCity(cityName,elmnt,color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.backgroundColor = "";
-    }
-    document.getElementById(cityName).style.display = "block";
-    elmnt.style.backgroundColor = color;
+var acc = document.getElementsByClassName("accordion");
+var i;
 
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
 }
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
 </script>
-     
+
 </body>
 </html> 
 

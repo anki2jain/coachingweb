@@ -1,65 +1,21 @@
-<?php
-
-if(isset($_COOKIE['do']))
-{
-    $name='do';
-    $content=$_COOKIE['do']+1;
-    $expiry=time()+(60*60*24*7);
-    setcookie($name,$content,$expiry);
-    
-    
-    
-}
-else{
-    $name='do';
-$content=1;
-$expiry=time()+(60*60*24*7);
-setcookie($name,$content,$expiry);
-}
-include 'navbar.php'; ?>
-
-
-    
 
 <html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+</head>
 <body>
-
-<form action="" method="post">
-email: <input type="email" name="email"><br>
-password: <input type="password" name="password"><br>
-<input type="submit">
-</form>
-
+<script type="text/javascript">
+    jQuery("body").prepend('<div id="preloader">Loading...</div>');
+    jQuery(document).ready(function() {
+    jQuery("#preloader").remove();
+    });
+</script>
 <?php
-
-$link =mysqli_connect("localhost","root","",'test');
-
-if(mysqli_connect_error())
-{
-    echo "you are not connected to db";
-}
-else {
-    echo "you are connected";
-}
-echo date("h-i-s");
-
-
-$query = "SELECT * FROM `user`";
-if($result=mysqli_query($link,$query)){
-    $row=mysqli_fetch_array($result);
-    if($row['password']=='12346'){
-    echo "your mail".$row['email']."ypur psw".$row['password'];
-    }
-    else 
-    {
-        echo "incorrect psw";
-    }
-}
-
-else{
-    echo "something is wrong";
-}
-
-?>
+include 'navbar.php';?>
+<div class="g-signin2">hiii</div>
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 </body>
 </html>
